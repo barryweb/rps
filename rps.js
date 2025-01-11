@@ -2,17 +2,14 @@ const choiceRock = "rock";
 const choicePaper = "paper";
 const choiceScissors = "scissors";
 
-let humanScore = 0;
-let computerScore = 0;
-
-//to use prompt function in local environment install npm package
+//to run prompt function in local environment install npm package
 // $ `npm install prompt`
 // run tests
 // $ `npm test`
 // const prompt = require('prompt-sync')();
 
 function getHumanChoice() {
-    let humanInput = prompt("Enter your choice: ").toLowerCase(); 
+    let humanInput = prompt("Enter your choice (rock, paper, or scissors): ").toLowerCase(); 
 
     if (
         (humanInput === choiceRock) || 
@@ -42,42 +39,52 @@ function getComputerChoice() {
     }
 }
 
-function getComputerChoice() {
-    let randomNum = Math.floor(Math.random() * 3) + 1;
+//play 5 rounds
+function playGame() {
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+
+        if (humanChoice === computerChoice) {
+            console.log("It's a tie!");
+            return;
+        }
     
-    if (randomNum === 1) {
-        console.log("Computer: ", choiceRock);
-        return choiceRock;
-    } else if (randomNum === 2) {
-        console.log("Computer: ", choicePaper);
-        return choicePaper;
+        if (
+            (humanChoice === choiceRock && computerChoice === choiceScissors) ||
+            (humanChoice === choiceScissors && computerChoice === choicePaper) ||
+            (humanChoice === choicePaper && computerChoice === choiceRock)
+        ) {
+            console.log("Winner: Player");
+            humanScore++
+        } else {
+            console.log("Winner: Computer");
+            computerScore++
+        }
+    }
+   
+    for (let round = 1; round <= 5; round++) {
+        console.log(`Round ${round}`);
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        console.log(`Player score: ${humanScore}, Computer score: ${computerScore}`);
+    }
+
+    console.log("Final Scores: ");
+    console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
+
+    if (humanScore > computerScore) {
+        console.log("Congrats! You win the game!");
+    } else if (computerScore > humanScore) {
+        console.log("Computer wins!");
     } else {
-        console.log("Computer: ", choiceScissors);
-        return choiceScissors;
+        console.log("It's a tie game! Play another round!");
     }
 }
-//single round
-function playRound(humanChoice, computerChoice) {
 
-    if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
-        return;
-    }
-
-    if (
-        (humanChoice === choiceRock && computerChoice === choiceScissors) ||
-        (humanChoice === choiceScissors && computerChoice === choicePaper) ||
-        (humanChoice === choicePaper && computerChoice === choiceRock)
-    ) {
-        console.log("Winner: Player");
-        humanScore++
-    } else {
-        console.log("Winner: Computer");
-        computerScore++
-    }
-}
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
