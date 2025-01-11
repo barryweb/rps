@@ -22,3 +22,33 @@ function getHumanChoice() {
             return getHumanChoice();
         }
 }
+
+function getComputerChoice() {
+    let randomNum = Math.floor(Math.random() * 3) + 1;
+    
+    if (randomNum === 1) {
+        console.log("Computer: ", choiceRock);
+        return choiceRock;
+    } else if (randomNum === 2) {
+        console.log("Computer: ", choicePaper);
+        return choicePaper;
+    } else {
+        console.log("Computer: ", choiceScissors);
+        return choiceScissors;
+    }
+}
+
+function getComputerChoice() {
+    let randomNum = Math.floor(Math.random() * 3) + 1;
+    
+    if (randomNum === 1) {
+        console.log("Computer: ", choiceRock);
+        return choiceRock;
+    } else if (randomNum === 2) {
+        console.log("Computer: ", choicePaper);
+        return choicePaper;
+    } else {
+        console.log("Computer: ", choiceScissors);
+        return choiceScissors;
+    }
+}
