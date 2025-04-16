@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+}
+
+body {
+    background-color: #e7cfb4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+#choices button {
+    padding: 10px 16px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.rock {
+    background-color: #6B4F3D;
+    color: white;
+}
+
+.scissors {
+    background-color: #B0B0B0;
+}
+
+.paper {
+    background-color: #F1F1F1;
+}
+
+.score {
+    margin-top: 10px;
+}
+
+.play-again {
+    /* display: none; */
+    margin-top: 12px;
+    margin-right: 55px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    border-style: dashed;
+    background-color: #D6B588;
+}
