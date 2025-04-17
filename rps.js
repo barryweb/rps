@@ -30,3 +30,44 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function updateResults(message) {
+    result.textContent = message;
+    score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
+}
+
+function getWinner() {
+    if (humanScore === 5 || computerScore === 5) {
+        const winner = 
+            humanScore === 5 ? "You won the game!" : "Computer won the game!";
+
+        const finalMsg = 
+            `${winner} Final Score - Player: ${humanScore}
+            | Computer: ${computerScore}`;
+        
+        updateResults(finalMsg);
+        disableBtns();
+    }
+}
+
+function disableBtns() {
+    buttons.forEach((btn) => {
+        btn.disabled = true;
+    })
+}
+
+function enableBtns() {
+    buttons.forEach((btn) => {
+        btn.disabled = false;
+    })
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const playerSelection = button.textContent;
+        const computerChoice = getComputerChoice();
+
+        const roundResult = playRound(playerSelection, computerChoice);
+        updateResults(roundResult);
+        getWinner();
+    });
+});
