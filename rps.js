@@ -46,6 +46,7 @@ function getWinner() {
         
         updateResults(finalMsg);
         disableBtns();
+        playAgnBtn.style.display = "block";
     }
 }
 
@@ -71,3 +72,12 @@ buttons.forEach((button) => {
         getWinner();
     });
 });
+
+playAgnBtn.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    updateResults("Pick your choice!");
+
+    enableBtns();
+    playAgnBtn.style.display = "none";
+})
