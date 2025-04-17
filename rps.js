@@ -6,7 +6,7 @@ let computerScore = 0;
 const result = document.querySelector(".result");
 const score = document.querySelector(".score");
 const buttons = document.querySelectorAll("#choices button");
-const playAgnBtn = document.querySelector(".play-again")
+const playAgnBtn = document.querySelector(".play-again");
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * gameChoices.length);
@@ -53,13 +53,13 @@ function getWinner() {
 function disableBtns() {
     buttons.forEach((btn) => {
         btn.disabled = true;
-    })
+    });
 }
 
 function enableBtns() {
     buttons.forEach((btn) => {
         btn.disabled = false;
-    })
+    });
 }
 
 buttons.forEach((button) => {
@@ -80,4 +80,4 @@ playAgnBtn.addEventListener("click", () => {
 
     enableBtns();
     playAgnBtn.style.display = "none";
-})
+});
