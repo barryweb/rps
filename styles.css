@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Press Start 2P', cursive, sans-serif;
+    font-weight: bold;
 }
 
 body {
@@ -48,7 +49,7 @@ button:hover {
 }
 
 .play-again {
-    /* display: none; */
+    display: none;
     margin-top: 12px;
     margin-right: 55px;
     padding: 10px 20px;
