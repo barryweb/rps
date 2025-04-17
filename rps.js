@@ -76,7 +76,7 @@ buttons.forEach((button) => {
 playAgnBtn.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
-    updateResults("Pick your choice!");
+    updateResults("Make your move!");
 
     enableBtns();
     playAgnBtn.style.display = "none";
